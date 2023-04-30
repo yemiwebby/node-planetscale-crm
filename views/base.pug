@@ -1,0 +1,49 @@
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="shortcut icon", href="https://planetscale.com/favicon.svg")
+    link(rel="shortcut icon", href="https://planetscale.com/favicon.ico")
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    )
+    meta(name="theme-color", content="#000000")
+    title #{ title } | PlanetScale CRM
+    link(
+      rel="stylesheet",
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
+      crossorigin="anonymous"
+    )
+    link(
+      rel="stylesheet",
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    )
+
+  body
+    #root(style="margin: 2%")
+      nav.navbar.navbar-expand-sm.navbar-light.bg-light
+        .container-fluid
+          a.navbar-brand(href="/clients") Express CRM
+          button.navbar-toggler(
+            type="button",
+            data-bs-toggle="collapse",
+            data-bs-target="#navbarCollapse"
+          )
+            span.navbar-toggler-icon
+          #navbarCollapse.collapse.navbar-collapse
+            ul.nav.navbar-nav.ms-auto
+              li.nav-item.dropdown
+                a.nav-link.dropdown-toggle(href="#", data-bs-toggle="dropdown") Clients
+                .dropdown-menu.dropdown-menu-end
+                  a.dropdown-item(href="/clients") View All
+                  a.dropdown-item(href="/client/create") Add New
+
+      block layout-content
+    script(
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM",
+      crossorigin="anonymous"
+    )

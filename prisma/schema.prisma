@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Client {
+  id             Int             @id @default(autoincrement())
+  name           String          @db.VarChar(255)
+  isCorporate    Boolean         @default(false)
+  yearFounded    String          @db.VarChar(255)
+  primaryContact PrimaryContact?
+}
+
+model PrimaryContact {
+  id           Int    @id @default(autoincrement())
+  name         String @db.VarChar(255)
+  phoneNumber  String @db.VarChar(255)
+  emailAddress String @db.VarChar(255)
+  client       Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId     Int    @unique
+}

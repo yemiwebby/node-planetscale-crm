@@ -1,0 +1,79 @@
+extends ../base
+
+block layout-content
+  .container(style="width: 80%; margin: auto; margin-top: 5%")
+    h1 Add New Client
+    form.row.g-3.needs-validation(
+      action="/client",
+      method="POST",
+      novalidate=""
+    )
+      .col-md-8
+        label.form-label(for="clientName") Client Name
+        input#clientName.form-control(
+          type="text",
+          placeholder="Client Name",
+          name="clientName",
+          class=errors && errors.clientName ? "is-invalid" : "",
+          value=values ? values.clientName : ""
+        )
+        if errors
+          .invalid-feedback= errors.clientName
+      .col-md-4
+        label.form-label(for="yearFounded") Year Founded
+        input#yearFounded.form-control(
+          type="text",
+          placeholder="Year founded",
+          name="yearFounded",
+          class=errors && errors.yearFounded ? "is-invalid" : "",
+          value=values ? values.yearFounded : ""
+        )
+        if errors
+          .invalid-feedback= errors.yearFounded
+
+      .col-md-4.form-check
+        input#isCorporate.form-check-input(
+          type="checkbox",
+          name="isCorporate",
+          checked=values ? values.isCorporate == "on" : false
+        )
+        label.form-check-label(for="isCorporate") Client is corporate
+
+      h3.my-3 Primary Contact
+      .col-md-4
+        label.form-label(for="contactName") Contact Name
+        input#contactName.form-control(
+          type="text",
+          placeholder="Contact Name",
+          name="contactName",
+          class=errors && errors.contactName ? "is-invalid" : "",
+          value=values ? values.contactName : ""
+        )
+        if errors
+          .invalid-feedback= errors.contactName
+
+      .col-md-4
+        label.form-label(for="contactPhoneNumber") Phone Number
+        input#contactPhoneNumber.form-control(
+          type="text",
+          placeholder="Phone Number",
+          name="contactPhoneNumber",
+          class=errors && errors.contactPhoneNumber ? "is-invalid" : "",
+          value=values ? values.contactPhoneNumber : ""
+        )
+        if errors
+          .invalid-feedback= errors.contactPhoneNumber
+
+      .col-md-4
+        label.form-label(for="contactEmailAddress") Email Address
+        input#contactEmailAddress.form-control(
+          type="email",
+          placeholder="Email Address",
+          name="contactEmailAddress",
+          class=errors && errors.contactEmailAddress ? "is-invalid" : "",
+          value=values ? values.contactEmailAddress : ""
+        )
+        if errors
+          .invalid-feedback= errors.contactEmailAddress
+      .col-12
+        button.btn.btn-primary(type="submit") Submit
