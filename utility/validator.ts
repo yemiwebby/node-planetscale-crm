@@ -24,7 +24,7 @@ export const clientInputCheck = () => [
       min: 11,
       max: 11,
     })
-    .withMessage("Please provide a valid phone number"),
+    .withMessage("Please provide a valid phone number with not less than or more than 11 digits"),
   body("contactEmailAddress")
     .trim()
     .not()
@@ -33,7 +33,6 @@ export const clientInputCheck = () => [
     .isEmail()
     .withMessage("Please enter a valid email address"),
 ];
-
 export interface ErrorResponse {
   type: string;
   value: string;

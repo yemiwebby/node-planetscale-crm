@@ -22,6 +22,7 @@ app.get("/client/create", create);
 app.post("/client", clientInputCheck(), store);
 app.post("/client/delete/:id", destroy);
 
+// @ts-ignore
 const { APP_PORT: port } = process.env || 8000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
